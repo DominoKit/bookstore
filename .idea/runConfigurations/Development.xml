@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Development" type="CompoundRunConfigurationType" factoryName="Compound Run Configuration">
+    <toRun type="Application" name="bookstore-dev" />
+    <toRun type="MavenRunConfiguration" name="super-dev-mode" />
+    <toRun type="QuarkusRunConfigurationType" name="bookstore-api" />
+    <method />
+  </configuration>
+</component>

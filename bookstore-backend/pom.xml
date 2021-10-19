@@ -129,7 +129,7 @@
                                 <systemProperty>
                                     <key>domino.webroot.location</key>
                                     <value>
-                                        {basedir}/../bookstore-frontend/target/bookstore-frontend-1.0-SNAPSHOT/bookstore
+                                        ${basedir}/../bookstore-frontend/target/bookstore-frontend-1.0-SNAPSHOT/bookstore
                                     </value>
                                 </systemProperty>
                             </systemProperties>
@@ -152,8 +152,7 @@
                             <systemProperties>
                                 <systemProperty>
                                     <key>domino.webroot.location</key>
-                                    <value>{basedir}/../target/gwt/launcherDir/bookstore
-                                    </value>
+                                    <value>${basedir}/../target/gwt/launcherDir/bookstore</value>
                                 </systemProperty>
                             </systemProperties>
                         </configuration>

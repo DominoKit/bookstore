@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="bookstore" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="MAIN_CLASS_NAME" value="org.dominokit.domino.api.server.DominoLauncher" />
+    <module name="bookstore-backend" />
+    <option name="PROGRAM_PARAMETERS" value="run org.dominokit.domino.api.server.StartupVerticle -conf target/classes/config.json -Dvertx.options.fileResolverCachingEnabled=false -Ddomino.webroot.location=../bookstore-frontend/target/bookstore-frontend-1.0-SNAPSHOT/bookstore" />
+    <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/bookstore-backend" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

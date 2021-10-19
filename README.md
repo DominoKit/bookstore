@@ -23,3 +23,7 @@
     - `cd bookstore-backend`
     - execute `java -jar target/bookstore-backend-1.0-SNAPSHOT-fat.jar`
     - the server port will be printed in the logs access the application on `http://localhost:[port]`
+    
+
+  - ##### Running the API server
+    - In a separate terminal `cd bookstore-api` and from there follow the readme file inside `bookstore-api` module
