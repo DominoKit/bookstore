@@ -1,6 +1,6 @@
 # How to run
 
-- #### run `mvn clean install` to build
+- #### run `mvn clean verify` to build
 
 - #### Run for development :
 
