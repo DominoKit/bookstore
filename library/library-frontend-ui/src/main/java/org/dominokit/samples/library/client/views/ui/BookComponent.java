@@ -1,9 +1,6 @@
 package org.dominokit.samples.library.client.views.ui;
 
-import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.cards.Card;
 import org.dominokit.domino.ui.forms.DoubleBox;
 import org.dominokit.domino.ui.forms.FieldsGrouping;
 import org.dominokit.domino.ui.forms.Select;
@@ -12,9 +9,6 @@ import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.grid.Column;
 import org.dominokit.domino.ui.grid.Row;
-import org.dominokit.domino.ui.grid.flex.FlexItem;
-import org.dominokit.domino.ui.grid.flex.FlexLayout;
-import org.dominokit.domino.ui.icons.Icons;
 import org.dominokit.domino.ui.utils.BaseDominoElement;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.samples.library.shared.model.Book;
@@ -22,7 +16,6 @@ import org.gwtproject.editor.client.Editor;
 import org.gwtproject.editor.client.SimpleBeanEditorDriver;
 import org.gwtproject.editor.client.annotation.IsDriver;
 
-import java.util.Date;
 import java.util.stream.IntStream;
 
 public class BookComponent extends BaseDominoElement<HTMLDivElement, BookComponent> implements Editor<Book> {
@@ -77,27 +70,27 @@ public class BookComponent extends BaseDominoElement<HTMLDivElement, BookCompone
 
         root.appendChild(DominoElement.div()
                 .appendChild(Row.create()
-                        .appendChild(Column.span6()
+                        .appendChild(Column.span12()
                                 .appendChild(title)
                         )
                 )
                 .appendChild(Row.create()
-                        .appendChild(Column.span6()
+                        .appendChild(Column.span12()
                                 .appendChild(author)
                         )
                 )
                 .appendChild(Row.create()
-                        .appendChild(Column.span6()
+                        .appendChild(Column.span12()
                                 .appendChild(year)
                         )
                 )
                 .appendChild(Row.create()
-                        .appendChild(Column.span6()
+                        .appendChild(Column.span12()
                                 .appendChild(publisher)
                         )
                 )
                 .appendChild(Row.create()
-                        .appendChild(Column.span6()
+                        .appendChild(Column.span12()
                                 .appendChild(cost)
                         )
                 )

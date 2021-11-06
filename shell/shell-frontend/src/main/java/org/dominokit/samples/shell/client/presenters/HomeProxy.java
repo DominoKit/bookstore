@@ -6,11 +6,12 @@ import org.dominokit.domino.api.client.annotations.presenter.PresenterProxy;
 import org.dominokit.domino.api.client.annotations.presenter.Slot;
 import org.dominokit.domino.api.client.mvp.presenter.ViewBaseClientPresenter;
 import org.dominokit.samples.shell.client.views.HomeView;
+import org.dominokit.samples.shell.shared.Slots;
 
 @PresenterProxy(parent = "shell")
 @AutoRoute(token = "home")
-@Slot("content")
+@Slot(Slots.CONTENT)
 @AutoReveal
-public class HomeProxy extends ViewBaseClientPresenter<HomeView> implements HomeView.HomeUiHandlers {
+public class HomeProxy extends ViewBaseClientPresenter<HomeView> {
 
 }

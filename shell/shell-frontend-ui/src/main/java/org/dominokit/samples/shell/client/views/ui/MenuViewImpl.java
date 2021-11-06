@@ -1,18 +1,13 @@
 package org.dominokit.samples.shell.client.views.ui;
 
 import elemental2.dom.HTMLDivElement;
+import org.dominokit.domino.api.client.annotations.UiView;
 import org.dominokit.domino.ui.icons.Icons;
 import org.dominokit.domino.ui.tree.Tree;
 import org.dominokit.domino.ui.tree.TreeItem;
 import org.dominokit.domino.view.BaseElementView;
-
-import org.dominokit.domino.api.client.annotations.UiView;
-import org.dominokit.domino.ui.utils.DominoElement;
-
 import org.dominokit.samples.shell.client.presenters.MenuProxy;
 import org.dominokit.samples.shell.client.views.MenuView;
-
-import static org.jboss.elemento.Elements.h;
 
 @UiView(presentable = MenuProxy.class)
 public class MenuViewImpl extends BaseElementView<HTMLDivElement> implements MenuView{

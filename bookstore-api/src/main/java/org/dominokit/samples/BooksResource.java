@@ -3,12 +3,8 @@ package org.dominokit.samples;
 import org.dominokit.samples.library.shared.model.Book;
 import org.dominokit.samples.library.shared.services.BooksService;
 
-import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,8 +33,10 @@ public class BooksResource implements BooksService {
 
     @Override
     public Book create(Book book) {
-        if(books.containsKey(book.getTitle())){
-            throw new WebApplicationException("Book with same title already exists", Response.Status.CONFLICT);
+        if (books.containsKey(book.getTitle())) {
+            throw new WebApplicationException(Response.status(Response.Status.CONFLICT)
+                    .entity("Book with same title already exists")
+                    .build());
         }
         books.put(book.getTitle(), book);
         return book;
@@ -46,8 +44,10 @@ public class BooksResource implements BooksService {
 
     @Override
     public Book update(String title, Book book) {
-        if(!books.containsKey(title)){
-            throw new WebApplicationException("No book with same title found", Response.Status.NOT_FOUND);
+        if (!books.containsKey(title)) {
+            throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
+                    .entity("No book with same title found")
+                    .build());
         }
         books.remove(title);
         books.put(book.getTitle(), book);
@@ -56,18 +56,22 @@ public class BooksResource implements BooksService {
 
     @Override
     public Book delete(String title) {
-        if(!books.containsKey(title)){
-            throw new WebApplicationException("No book with same title found", Response.Status.NOT_FOUND);
+        if (!books.containsKey(title)) {
+            throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
+                    .entity("No book with same title found")
+                    .build());
         }
-        Book book= books.get(title);
+        Book book = books.get(title);
         books.remove(title);
         return book;
     }
 
     @Override
     public Book get(String title) {
-        if(!books.containsKey(title)){
-            throw new WebApplicationException("No book with same title found", Response.Status.NOT_FOUND);
+        if (!books.containsKey(title)) {
+            throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
+                    .entity("No book with same title found")
+                    .build());
         }
         return books.get(title);
     }

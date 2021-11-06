@@ -23,11 +23,6 @@ public class ShellProxy extends ViewBaseClientPresenter<ShellView> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ShellProxy.class);
 
-    @RevealCondition
-    public static boolean checkAuthentication(){
-        return true;
-    }
-
     @OnReveal
     public void fireInitialState(){
         if(history().currentToken().isEmpty()){

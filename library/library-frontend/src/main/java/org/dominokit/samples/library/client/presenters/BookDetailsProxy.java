@@ -18,13 +18,11 @@ import java.util.List;
 
 import static java.util.Objects.nonNull;
 
-@PresenterProxy(parent = "shell")
-@AutoRoute(token = "book/:title")
+@PresenterProxy(parent = "books")
+@AutoRoute(token = "books/:title")
 @Slot("content")
 @AutoReveal
 public class BookDetailsProxy extends ViewBaseClientPresenter<BookDetailsView> implements BookDetailsView.BookDetailsUiHandlers {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(BookDetailsProxy.class);
 
     private Book book;
 
@@ -51,7 +49,11 @@ public class BookDetailsProxy extends ViewBaseClientPresenter<BookDetailsView> i
 
     private void setEditable(boolean editableState) {
         view.setEditable(editableState);
-        history().pushState(history().currentToken().clearQuery().addQueryParameter("editable", editableState +""));
+        if (history().currentToken().hasQueryParameter("editable")) {
+            history().pushState(history().currentToken().replaceParameter("editable", "editable", editableState + ""));
+        } else {
+            history().pushState(history().currentToken().addQueryParameter("editable", editableState + ""));
+        }
     }
 
     private boolean isEditableState() {

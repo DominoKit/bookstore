@@ -19,16 +19,8 @@ import org.slf4j.LoggerFactory;
 @AutoReveal
 public class BooksProxy extends ViewBaseClientPresenter<BooksView> implements BooksView.BooksUiHandlers {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(BooksProxy.class);
-
-    @OnInit
-    public void onBooksInit(){
-        LOGGER.info("Books initialized");
-    }
-
     @OnReveal
     public void listBooks() {
-        LOGGER.info("Books view revealed, loading books...");
         BooksServiceFactory.INSTANCE
                 .list()
                 .onSuccess(books -> view.setBooks(books))
@@ -43,7 +35,7 @@ public class BooksProxy extends ViewBaseClientPresenter<BooksView> implements Bo
 
     @Override
     public void onBookSelected(Book book) {
-        history().fireState("book/"+book.getTitle());
+        history().fireState("books/"+book.getTitle());
     }
 
     @Override

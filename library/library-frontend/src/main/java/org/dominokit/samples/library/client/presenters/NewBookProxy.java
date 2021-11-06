@@ -6,19 +6,16 @@ import org.dominokit.domino.api.client.annotations.presenter.OnReveal;
 import org.dominokit.domino.api.client.annotations.presenter.PresenterProxy;
 import org.dominokit.domino.api.client.annotations.presenter.Slot;
 import org.dominokit.domino.api.client.mvp.presenter.ViewBaseClientPresenter;
+import org.dominokit.domino.api.shared.extension.PredefinedSlots;
 import org.dominokit.samples.library.client.views.NewBookView;
 import org.dominokit.samples.library.shared.model.Book;
 import org.dominokit.samples.library.shared.services.BooksServiceFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-@PresenterProxy(parent = "shell")
+@PresenterProxy(parent = "books")
 @AutoRoute(token = "new-book")
-@Slot("content")
+@Slot(PredefinedSlots.MODAL_SLOT)
 @AutoReveal
 public class NewBookProxy extends ViewBaseClientPresenter<NewBookView> implements NewBookView.NewBookUiHandlers {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(NewBookProxy.class);
 
     @OnReveal
     public void initBook(){
@@ -30,7 +27,10 @@ public class NewBookProxy extends ViewBaseClientPresenter<NewBookView> implement
         if(view.isValid()) {
             BooksServiceFactory.INSTANCE
                     .create(view.save())
-                    .onSuccess(book -> history().fireState("book/" + book.getTitle()))
+                    .onSuccess(book -> {
+                        history().fireState("books/" + book.getTitle());
+                        view.close();
+                    })
                     .onFailed(failedResponseBean -> view.onError(failedResponseBean.getBody()))
                     .send();
         }
@@ -38,6 +38,6 @@ public class NewBookProxy extends ViewBaseClientPresenter<NewBookView> implement
 
     @Override
     public void onCancel() {
-        history().fireState("books");
+        view.close();
     }
 }
