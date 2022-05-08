@@ -13,7 +13,7 @@ import org.dominokit.samples.library.shared.services.BooksServiceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@PresenterProxy(parent = "shell")
+@PresenterProxy(parent = "shell", name = "books")
 @AutoRoute(token = "books")
 @Slot("content")
 @AutoReveal
